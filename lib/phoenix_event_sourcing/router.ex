@@ -1,20 +1,22 @@
 defmodule PhoenixEventSourcing.Router do
   use Commanded.Commands.Router
 
-  # middleware(LeangooApi.Support.Middleware.ValidateCommand)
+  alias PhoenixEventSourcing.Boards.Aggregates.Board
+  alias PhoenixEventSourcing.Boards.Aggregates.BoardLifespan
 
-  # identify(Board, by: :board_uuid, prefix: "board-")
+  alias PhoenixEventSourcing.Boards.Commands.{
+    CreatePersonalBoard
+  }
 
-  # dispatch(
-  #   [
-  #     AddBoardMember,
-  #     AddBoardColumn,
-  #     AddBoardLane,
-  #     CreatePersonalBoard,
-  #     InitializeBoardFromLegacy,
-  #     RenameBoardColumn
-  #   ],
-  #   to: Board,
-  #   lifespan: BoardLifespan
-  # )
+  middleware(PhoenixEventSourcing.Support.Middleware.ValidateCommand)
+
+  identify(Board, by: :board_uuid, prefix: "board-")
+
+  dispatch(
+    [
+      CreatePersonalBoard
+    ],
+    to: Board,
+    lifespan: BoardLifespan
+  )
 end

@@ -15,8 +15,8 @@ defmodule PhoenixEventSourcing.Application do
       {Phoenix.PubSub, name: PhoenixEventSourcing.PubSub},
       # Start the Endpoint (http/https)
       PhoenixEventSourcingWeb.Endpoint,
-
       PhoenixEventSourcing.CommandedApp,
+      PhoenixEventSourcing.Boards.Supervisor,
       PhoenixEventSourcing.EsRepo,
       # Start the PubSub system
       # Start a worker by calling: PhoenixEventSourcing.Worker.start_link(arg)

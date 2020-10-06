@@ -47,7 +47,10 @@ defmodule PhoenixEventSourcing.MixProject do
       {:plug_cowboy, "~> 2.0"},
       {:commanded, "~> 1.1"},
       {:commanded_eventstore_adapter, "~> 1.1"},
-      {:commanded_ecto_projections, "~> 1.1"}
+      {:commanded_ecto_projections, "~> 1.1"},
+      {:skooma, "~> 0.2.0"},
+      {:exconstructor, "~> 1.1.0"},
+      {:timex, "~> 3.0"}
     ]
   end
 

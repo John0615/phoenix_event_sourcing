@@ -17,6 +17,14 @@ defmodule PhoenixEventSourcingWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+
+    post "/", PageController, :create
+  end
+
+
+  scope "/board", PhoenixEventSourcingWeb do
+
+    post "/", BoardController, :create
   end
 
   # Other scopes may use custom stacks.
